@@ -15,7 +15,7 @@ desired_caps['deviceName']='7XBRX19426001121'
 desired_caps['app']='/Users/cady/Downloads/手机梵讯.apk'
 desired_caps['appPackage']='com.fooww.soft.android.Presentation'
 desired_caps['appActivity']='.SplashScreenActivity'
-desired_caps['fullReset']= True
+# desired_caps['fullReset']= True
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
 def always_allow(driver, number=5):
