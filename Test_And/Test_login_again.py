@@ -14,7 +14,7 @@ desired_caps['platformVersion']='8.1.0'
 desired_caps['deviceName']='7XBRX19426001121'
 desired_caps['appPackage']='com.fooww.soft.android.Presentation'
 desired_caps['appActivity']='.SplashScreenActivity'
-desired_caps['noReset'] = True # 不重装应用
+desired_caps['noReset'] = True
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
 
