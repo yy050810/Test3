@@ -12,7 +12,7 @@ desired_caps['udid']='478c4f8a26209f259d4f7445a68173f8e65d1638'
 desired_caps['app']='/Users/cady/Downloads/Foowwphone_2.ipa'
 desired_caps['locationServicesEnabled']= True
 desired_caps['locationServicesAuthorized']= True
-# desired_caps['fullReset']= "true"
+desired_caps['fullReset']= True
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
 def geteleByPredicate(con):

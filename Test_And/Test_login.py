@@ -55,6 +55,8 @@ if __name__ == "__main__":
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail","13000000033")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etPassword","1234567:pUblic")
     clickeleById("com.fooww.soft.android.Presentation:id/btnLogin")
+    driver.implicitly_wait(5)
+    always_allow(driver, 1)
     time.sleep(10)
     driver.quit()
 
