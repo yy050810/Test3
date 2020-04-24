@@ -1,5 +1,6 @@
 import os
 from appium import webdriver
+from appium.webdriver.common.touch_action import TouchAction
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
@@ -79,12 +80,121 @@ def sendkeyseleById(id,value):
     text_field.clear()
     text_field.send_keys(value)
 
+def sendkeyseleByXpath(path,value):
+    '''
+    向输入框输入文字
+    :param path: path
+    :param value:
+    :return:
+    '''
+    text_field=geteleByXpath(path)
+    text_field.clear()
+    text_field.send_keys(value)
+
+def get_size():
+    '''
+    获取屏幕尺寸
+    :return: 长宽
+    '''
+    size=driver.get_window_size()
+    x=size['width']
+    y=size['height']
+    return x,y
+
+def swipe_up():
+    '''
+    整个屏幕向上滑动
+    :return:
+    '''
+    x1=get_size()[0]*0.5
+    y1=get_size()[1]*0.85
+    y2=get_size()[1]*0.15
+    time.sleep(1)
+    driver.swipe(x1,y1,x1,y2)
+
+
 
 if __name__ == "__main__":
-    driver.implicitly_wait(15)
+    #处理系统权限探矿
+    driver.implicitly_wait(5)
     always_allow(driver, 1)
+    driver.implicitly_wait(1)
+    #点击【+】
     clickeleById("com.fooww.soft.android.Presentation:id/main_floating_action_bar")
+    #点击【录入房源】
     clickeleByXpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.View[1]")
+    #点击【小区】
+    clickeleById("com.fooww.soft.android.Presentation:id/tv_house_add_row_select_value")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch","一期")
+    driver.implicitly_wait(2)
+    #搜索小区
+    clickeleByXpath("//*[@text='颐和轩一期']")
+    driver.implicitly_wait(2)
+    #填写总价
+    sendkeyseleByXpath("//*[@text='请填写']","500")
+    sendkeyseleByXpath("//*[@text='请填写']", "80")
+    #选择朝向
+    clickeleByXpath("//*[@text='其他']")
+    driver.implicitly_wait(2)
+    clickeleByXpath("//*[@text='东西']")
+    clickeleByXpath("//*[@text='确定']")
+    #选择装修
+    clickeleByXpath("//*[@text='毛坯']")
+    driver.implicitly_wait(2)
+    clickeleByXpath("//*[@text='精装']")
+    clickeleByXpath("//*[@text='确定']")
+    #向上滑动
+    swipe_up()
+    driver.implicitly_wait(5)
+    #点击照片
+    clickeleById("com.fooww.soft.android.Presentation:id/row_add_edit_house_take_photo")
+    driver.implicitly_wait(2)
+    clickeleByXpath("//*[@text='本地图片']")
+    #处理照片访问权限
+    driver.implicitly_wait(5)
+    always_allow(driver, 1)
+    #选择并上传图片
+    clickeleById("com.fooww.soft.android.Presentation:id/check_view")
+    clickeleByXpath("//*[@text='使用1']")
+    driver.implicitly_wait(5)
+    #返回
+    driver.back()
+    driver.implicitly_wait(5)
+    clickeleByXpath("//*[@text='保存']")
+    driver.implicitly_wait(10)
+    #查看房源详情
+    clickeleByXpath("//*[@text='颐和轩一期']")
+    #查看业主信息
+    clickeleById("com.fooww.soft.android.Presentation:id/ivOwner")
+    driver.implicitly_wait(5)
+    #返回房源详情
+    driver.back()
+    driver.implicitly_wait(5)
+    #返回房源列表
+    driver.back()
+    #删除房源
+    TouchAction(driver).long_press(geteleByXpath("//*[@text='颐和轩一期']")).perform()
+    clickeleByXpath("//*[@text='删除']")
+    clickeleById("com.fooww.soft.android.Presentation:id/md_buttonDefaultPositive")
+    #搜索房源
+    driver.implicitly_wait(3)
+    clickeleById("com.fooww.soft.android.Presentation:id/et_search_bar")
+    driver.implicitly_wait(1)
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword","测试")
+    time.sleep(15)
+    driver.quit()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

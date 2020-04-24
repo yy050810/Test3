@@ -108,15 +108,17 @@ if __name__ == "__main__":
     sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请填写'", "500")
     #填写面积
     sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请填写'", "80")
-    #填写朝向
+    #选择朝向
     clickeleByPredicate("type == 'XCUIElementTypeTextField' AND value == '其他'")
     clickeleById("东西")
     clickeleById("确定")
-    #填写装修情况
+    #选择装修情况
     clickeleByPredicate("type == 'XCUIElementTypeTextField' AND value == '毛坯'")
     clickeleById("精装")
     clickeleById("确定")
-    driver.execute_script('mobile: scroll', {'direction': 'down'});
+    #向下滑动
+    driver.execute_script('mobile: scroll', {'direction': 'down'})
+    #点击照片
     clickeleById("icon right camera")
     clickeleById("本地照片")
     #处理照片访问权限
