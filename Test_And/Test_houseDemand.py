@@ -134,11 +134,11 @@ if __name__ == "__main__":
     #填写总价
     sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_start","0")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_end","500")
-    #填写单价
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_start","0")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_end","30000")
     time.sleep(1)
     swipe_up(1)
+    #填写户型
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_room_count","2")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_hall_count","1")
     #选择区县
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_district_edit")
     driver.implicitly_wait(3)
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_add_intention_community")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch","矿业第一安居")
     driver.implicitly_wait(3)
-    clickeleByXpath("//*[@text='矿业第一安居']")
+    clickeleById("com.fooww.soft.android.Presentation:id/tvCommunity")
     driver.implicitly_wait(3)
     #保存
     clickeleByXpath("//*[@text='保存']")
