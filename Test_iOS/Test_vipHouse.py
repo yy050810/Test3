@@ -139,43 +139,13 @@ def get_size():
 
 if __name__ == "__main__":
     driver.implicitly_wait(10)
-    #点击【消息】tab
-    clickeleByXpath("//XCUIElementTypeButton[@name='消息']")
-    driver.implicitly_wait(3)
-    clickeleById("微站客户")
-    driver.implicitly_wait(3)
-    clickeleById("访客动态")
-    # 向下滑动
-    driver.execute_script('mobile: scroll', {'direction': 'down'})
-    # 点击【分享获客】
-    clickeleById("分享获客")
-    driver.implicitly_wait(3)
-    # 点击【立即分享】
-    clickeleById("立即分享")
-    time.sleep(1)
-    # 下拉分享
-    drag(geteleById("租房"),0.4)
-    #退出介绍页
-    clickeleById("icon back left")
-    drag(geteleById("租房"), 0.4)
-    driver.implicitly_wait(3)
-    clickeleById("生成房源单")
-    #点击【分享】
-    clickeleByXpath("//XCUIElementTypeButton[@name=' 分享']")
-    #选择【微信】
-    driver.implicitly_wait(3)
-    clickeleById("wx icon")
-    #选择微信要分享的人
-    driver.implicitly_wait(3)
-    clickeleByPredicate("type == 'XCUIElementTypeStaticText' AND value == 'Cady' AND name == 'Cady'")
-    #点击【发送】
-    driver.implicitly_wait(3)
-    clickeleById("发送")
-    #点击【返回手机梵讯】
-    driver.implicitly_wait(5)
-    clickeleById("返回手机梵讯")
-
-    time.sleep(10)
+    #点击【发现】tab
+    clickeleById("发现")
+    clickeleById("个人房源")
+    clickeleById("个人二手房")
+    #点击第一个不为【已导入】的房源
+    eles = driver.find_elements_by_xpath("//*[@type='XCUIElementTypeCell' and not(contains(@id,'已导入'))]")
+    eles[0].click()
     driver.quit()
 
 
