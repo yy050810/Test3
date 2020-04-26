@@ -121,84 +121,38 @@ if __name__ == "__main__":
     driver.implicitly_wait(5)
     always_allow(driver, 1)
     driver.implicitly_wait(1)
-    #点击【+】
-    clickeleById("com.fooww.soft.android.Presentation:id/main_floating_action_bar")
-    #点击【录入房源】
-    clickeleByXpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.View[1]")
-    #点击【小区】
-    clickeleById("com.fooww.soft.android.Presentation:id/tv_house_add_row_select_value")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch","一期")
-    driver.implicitly_wait(2)
-    #搜索小区
-    clickeleByXpath("//*[@text='颐和轩一期']")
-    driver.implicitly_wait(2)
-    #填写总价
-    sendkeyseleByXpath("//*[@text='请填写']","500")
-    sendkeyseleByXpath("//*[@text='请填写']", "80")
-    #选择朝向
-    clickeleByXpath("//*[@text='其他']")
-    driver.implicitly_wait(2)
-    clickeleByXpath("//*[@text='东西']")
-    clickeleByXpath("//*[@text='确定']")
-    #选择装修
-    clickeleByXpath("//*[@text='毛坯']")
-    driver.implicitly_wait(2)
-    clickeleByXpath("//*[@text='精装']")
-    clickeleByXpath("//*[@text='确定']")
-    #向上滑动
-    time.sleep(1)
-    swipe_up(2)
-    driver.implicitly_wait(5)
-    #点击照片
-    clickeleById("com.fooww.soft.android.Presentation:id/row_add_edit_house_take_photo")
-    driver.implicitly_wait(2)
-    clickeleByXpath("//*[@text='本地图片']")
-    #处理照片访问权限
-    driver.implicitly_wait(5)
-    always_allow(driver, 1)
-    #选择并上传图片
-    clickeleById("com.fooww.soft.android.Presentation:id/check_view")
-    clickeleByXpath("//*[@text='使用1']")
-    driver.implicitly_wait(5)
-    #返回
-    driver.keyevent(4)
-    driver.implicitly_wait(5)
-    clickeleByXpath("//*[@text='保存']")
-    driver.implicitly_wait(10)
-    #查看房源详情
-    clickeleByXpath("//*[@text='颐和轩一期']")
-    #查看业主信息
-    clickeleById("com.fooww.soft.android.Presentation:id/ivOwner")
-    driver.implicitly_wait(5)
-    #返回房源详情
-    driver.keyevent(4)
-    driver.implicitly_wait(5)
-    #返回房源列表
-    driver.keyevent(4)
-    #删除房源
-    TouchAction(driver).long_press(geteleByXpath("//*[@text='颐和轩一期']")).perform()
-    clickeleByXpath("//*[@text='删除']")
-    clickeleById("com.fooww.soft.android.Presentation:id/md_buttonDefaultPositive")
-    #搜索房源
+    #点击【客源】tab
+    clickeleById("com.fooww.soft.android.Presentation:id/demand_badge")
     driver.implicitly_wait(3)
-    clickeleById("com.fooww.soft.android.Presentation:id/et_search_bar")
-    driver.implicitly_wait(1)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword","测试")
-    time.sleep(15)
-    driver.quit()
-
-
-
-
-
-
-
-
-
-
-
-
-
+    #点击【添加客源】
+    clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_add")
+    clickeleByXpath("//*[@text='添加新客源']")
+    #填写客源姓名
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_customer_name","测试顾客")
+    #填写电话
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/demand_view_phone_0","13501300333")
+    #填写总价
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_start","0")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_end","500")
+    #填写单价
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_start","0")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_end","30000")
+    time.sleep(1)
+    swipe_up(1)
+    #选择区县
+    clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_district_edit")
+    driver.implicitly_wait(3)
+    clickeleByXpath("//*[@text='日喀则市']")
+    driver.implicitly_wait(3)
+    #添加意向小区
+    clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_add_intention_community")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch","矿业第一安居")
+    driver.implicitly_wait(3)
+    clickeleByXpath("//*[@text='矿业第一安居']")
+    driver.implicitly_wait(3)
+    #保存
+    clickeleByXpath("//*[@text='保存']")
+    time.sleep(10)
 
 
 
