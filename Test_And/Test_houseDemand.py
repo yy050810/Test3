@@ -153,11 +153,13 @@ if __name__ == "__main__":
     driver.implicitly_wait(3)
     #保存
     clickeleByXpath("//*[@text='保存']")
-    # 查看房源详情
+    # 查看客源详情
     driver.implicitly_wait(5)
 
     driver.implicitly_wait(5)
     # 查看客源电话
+
+    # 删除客源
 
     # 查询
     time.sleep(10)
