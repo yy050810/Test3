@@ -101,16 +101,18 @@ def get_size():
     y=size['height']
     return x,y
 
-def swipe_up():
+def swipe_up(count):
     '''
-    整个屏幕向上滑动
+    向下滑动方法
+    :param count:滑动次数
     :return:
     '''
     x1=get_size()[0]*0.5
     y1=get_size()[1]*0.85
     y2=get_size()[1]*0.15
-    time.sleep(1)
-    driver.swipe(x1,y1,x1,y2)
+    for i in range(count):
+        time.sleep(1)
+        driver.swipe(x1,y1,x1,y2)
 
 
 
@@ -144,7 +146,8 @@ if __name__ == "__main__":
     clickeleByXpath("//*[@text='精装']")
     clickeleByXpath("//*[@text='确定']")
     #向上滑动
-    swipe_up()
+    time.sleep(1)
+    swipe_up(2)
     driver.implicitly_wait(5)
     #点击照片
     clickeleById("com.fooww.soft.android.Presentation:id/row_add_edit_house_take_photo")
@@ -158,7 +161,7 @@ if __name__ == "__main__":
     clickeleByXpath("//*[@text='使用1']")
     driver.implicitly_wait(5)
     #返回
-    driver.back()
+    driver.keyevent(4)
     driver.implicitly_wait(5)
     clickeleByXpath("//*[@text='保存']")
     driver.implicitly_wait(10)
@@ -168,10 +171,10 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/ivOwner")
     driver.implicitly_wait(5)
     #返回房源详情
-    driver.back()
+    driver.keyevent(4)
     driver.implicitly_wait(5)
     #返回房源列表
-    driver.back()
+    driver.keyevent(4)
     #删除房源
     TouchAction(driver).long_press(geteleByXpath("//*[@text='颐和轩一期']")).perform()
     clickeleByXpath("//*[@text='删除']")
