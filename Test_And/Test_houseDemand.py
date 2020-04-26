@@ -135,6 +135,7 @@ if __name__ == "__main__":
     sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_start","0")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_end","500")
     time.sleep(1)
+    #向下滑动
     swipe_up(1)
     #填写户型
     sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_room_count","2")
@@ -152,6 +153,13 @@ if __name__ == "__main__":
     driver.implicitly_wait(3)
     #保存
     clickeleByXpath("//*[@text='保存']")
+    # 查看房源详情
+    driver.implicitly_wait(5)
+
+    driver.implicitly_wait(5)
+    # 查看客源电话
+
+    # 查询
     time.sleep(10)
 
 
