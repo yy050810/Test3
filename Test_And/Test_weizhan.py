@@ -114,68 +114,68 @@ def swipe_up(count):
         time.sleep(1)
         driver.swipe(x1,y1,x1,y2)
 
-
+def drag(driver,ele,time):
+    '''
+    下拉操作
+    :param ele:
+    :param time:
+    :return:
+    '''
+    a = 0.5
+    b2 = 450 / 667
+    # 获取当前手机屏幕大小X,Y
+    X = driver.get_window_size()['width']
+    Y = driver.get_window_size()['height']
+    # 屏幕坐标乘以系数即为用户要点击位置的具体坐标
+    TouchAction(driver).press(ele).wait(time).move_to(x = a * X,y = b2 * Y).release().perform();
 
 if __name__ == "__main__":
     #处理系统权限弹框
     driver.implicitly_wait(5)
     always_allow(driver, 1)
     driver.implicitly_wait(1)
-    #点击【客源】tab
-    clickeleById("com.fooww.soft.android.Presentation:id/demand_badge")
+    #点击【消息】tab
+    clickeleById("com.fooww.soft.android.Presentation:id/message_badge")
     driver.implicitly_wait(3)
-    #点击【添加客源】
-    clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_add")
-    clickeleByXpath("//*[@text='添加新客源']")
-    #填写客源姓名
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_customer_name","测试顾客And")
-    #填写电话
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/demand_view_phone_0","13501300333")
-    #填写总价
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_start","0")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_end","500")
+    clickeleByXpath("//*[@text='微站客户']")
+    #点击【访客动态】
+    driver.implicitly_wait(3)
+    clickeleById("com.fooww.soft.android.Presentation:id/customer_dynm")
+    # 向下滑动
+    swipe_up(2)
+    # 点击【分享获客】
+    clickeleById("com.fooww.soft.android.Presentation:id/customer_share")
+    # 点击【立即分享】
+    clickeleById("com.fooww.soft.android.Presentation:id/sg_submit")
+    # 下拉分享
     time.sleep(1)
-    #向下滑动
-    swipe_up(1)
-    #填写户型
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_room_count","2")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_hall_count","1")
-    #选择区县
-    clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_district_edit")
-    driver.implicitly_wait(3)
-    clickeleByXpath("//*[@text='日喀则市']")
-    driver.implicitly_wait(3)
-    #添加意向小区
-    clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_add_intention_community")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch","矿业第一安居")
-    driver.implicitly_wait(3)
-    clickeleById("com.fooww.soft.android.Presentation:id/tvCommunity")
-    driver.implicitly_wait(3)
-    #保存
-    clickeleByXpath("//*[@text='保存']")
-    # 查看客源详情
-    driver.implicitly_wait(5)
-    clickeleByXpath("//*[@text='测试顾客And']")
-    driver.implicitly_wait(5)
-    # 查看客源电话
-    clickeleById("com.fooww.soft.android.Presentation:id/iv_call_phone")
-    #返回
+    drag(driver,geteleByXpath("//*[@text='租房']"),500)
+    #退出介绍页
     driver.keyevent(4)
-    # 删除客源
-    TouchAction(driver).long_press(geteleByXpath("//*[@text='测试顾客And']")).perform()
-    clickeleByXpath("//*[@text='删除']")
-    clickeleById("com.fooww.soft.android.Presentation:id/md_buttonDefaultPositive")
-    # 查询
-    driver.implicitly_wait(5)
-    clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_filter")
+    # 再次下拉分享
+    time.sleep(3)
+    drag(driver, geteleByXpath("//*[@text='租房']"), 500)
     driver.implicitly_wait(3)
-    clickeleById("com.fooww.soft.android.Presentation:id/etUserOwner")
-    clickeleByXpath("//*[@text='王明Wangmin']")
+    clickeleById("com.fooww.soft.android.Presentation:id/mBtCollect")
+    # 点击【分享】
+    clickeleByXpath("//*[@text='分享']")
+    # 选择【微信】
+    clickeleByXpath("//*[@text='微信好友']")
+    # 选择微信要分享的人
+    clickeleByXpath("//*[@text='Cady']")
+    # 点击【发送】
     driver.implicitly_wait(3)
-    clickeleById("com.fooww.soft.android.Presentation:id/etBusinessState")
-    clickeleByXpath("//*[@text='状态不限']")
-    clickeleById("com.fooww.soft.android.Presentation:id/btnConfirmCondition")
+    clickeleByXpath("//*[@text='分享']")
+    # 点击【返回手机梵讯】
+    clickeleByXpath("//*[@text='返回手机梵讯']")
+
     time.sleep(10)
+    driver.quit()
+
+
+
+
+
 
 
 

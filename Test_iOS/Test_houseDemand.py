@@ -143,7 +143,7 @@ if __name__ == "__main__":
     clickeleById("call on")
     clickeleById("icon back left")
     driver.implicitly_wait(5)
-    #删除房源
+    #删除客源
     toLeftSwipeByXpath("//XCUIElementTypeStaticText[@name='测试顾客ios']")
     clickeleByPredicate("type == 'XCUIElementTypeButton' AND name == '删除'")
     clickeleById("确定")
