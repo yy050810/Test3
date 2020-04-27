@@ -8,16 +8,18 @@ import time
 # pip install Appium-Python-Client
 # Then you can paste this into a file and simply run with Python
 
-desired_caps=dict()
-desired_caps['platformName']='Android'
-desired_caps['platformVersion']='8.1.0'
-desired_caps['deviceName']='7XBRX19426001121'
-desired_caps['app']='/Users/cady/Downloads/手机梵讯.apk'
-desired_caps['appPackage']='com.fooww.soft.android.Presentation'
-desired_caps['appActivity']='.SplashScreenActivity'
+desired_caps = dict()
+desired_caps['platformName'] = 'Android'
+desired_caps['platformVersion'] = '8.1.0'
+desired_caps['deviceName'] = '7XBRX19426001121'
+desired_caps['app'] = '/Users/cady/Downloads/手机梵讯.apk'
+desired_caps['appPackage'] = 'com.fooww.soft.android.Presentation'
+desired_caps['appActivity'] = '.SplashScreenActivity'
 # desired_caps['fullReset']= True
 
-driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
+driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+
+
 def always_allow(driver, number=5):
     '''
     允许权限弹窗处理
@@ -33,34 +35,36 @@ def always_allow(driver, number=5):
         except:
             pass
 
+
 def geteleById(id):
     ele = driver.find_element_by_id(id)
     return ele
 
+
 def clickeleById(id):
-    ele=geteleById(id)
+    ele = geteleById(id)
     ele.click()
 
-def sendkeyseleById(id,value):
-    text_field=geteleById(id)
+
+def sendkeyseleById(id, value):
+    text_field = geteleById(id)
     text_field.clear()
     text_field.send_keys(value)
 
 
 if __name__ == "__main__":
-    always_allow(driver,3)
+    # 处理3个权限弹窗
+    always_allow(driver, 3)
+    # 点击【跳过】
     driver.implicitly_wait(20)
     clickeleById("com.fooww.soft.android.Presentation:id/btn_splash_skip")
     driver.implicitly_wait(10)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail","13000000033")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/etPassword","1234567:pUblic")
+    # 输入用户名和密码
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail", "13000000033")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/etPassword", "1234567:pUblic")
     clickeleById("com.fooww.soft.android.Presentation:id/btnLogin")
     driver.implicitly_wait(5)
+    # 处理1个权限弹窗
     always_allow(driver, 1)
     time.sleep(10)
     driver.quit()
-
-
-
-
-

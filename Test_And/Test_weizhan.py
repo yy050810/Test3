@@ -9,15 +9,17 @@ import time
 # pip install Appium-Python-Client
 # Then you can paste this into a file and simply run with Python
 
-desired_caps=dict()
-desired_caps['platformName']='Android'
-desired_caps['platformVersion']='8.1.0'
-desired_caps['deviceName']='7XBRX19426001121'
-desired_caps['appPackage']='com.fooww.soft.android.Presentation'
-desired_caps['appActivity']='.SplashScreenActivity'
-desired_caps['noReset'] = True # 不重装应用
+desired_caps = dict()
+desired_caps['platformName'] = 'Android'
+desired_caps['platformVersion'] = '8.1.0'
+desired_caps['deviceName'] = '7XBRX19426001121'
+desired_caps['appPackage'] = 'com.fooww.soft.android.Presentation'
+desired_caps['appActivity'] = '.SplashScreenActivity'
+desired_caps['noReset'] = True  # 不重装应用
 
-driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
+driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+
+
 def always_allow(driver, number=5):
     '''
     允许权限弹窗处理
@@ -33,6 +35,7 @@ def always_allow(driver, number=5):
         except:
             pass
 
+
 def geteleById(id):
     '''
     通过id查找元素
@@ -41,6 +44,7 @@ def geteleById(id):
     '''
     ele = driver.find_element_by_id(id)
     return ele
+
 
 def geteleByXpath(path):
     '''
@@ -51,14 +55,16 @@ def geteleByXpath(path):
     ele = driver.find_element_by_xpath(path)
     return ele
 
+
 def clickeleById(id):
     '''
     ById点击方法
     :param id:
     :return:
     '''
-    ele=geteleById(id)
+    ele = geteleById(id)
     ele.click()
+
 
 def clickeleByXpath(path):
     '''
@@ -66,40 +72,44 @@ def clickeleByXpath(path):
     :param path:
     :return:
     '''
-    ele=geteleByXpath(path)
+    ele = geteleByXpath(path)
     ele.click()
 
-def sendkeyseleById(id,value):
+
+def sendkeyseleById(id, value):
     '''
     向输入框输入文字
     :param id:
     :param value:
     :return:
     '''
-    text_field=geteleById(id)
+    text_field = geteleById(id)
     text_field.clear()
     text_field.send_keys(value)
 
-def sendkeyseleByXpath(path,value):
+
+def sendkeyseleByXpath(path, value):
     '''
     向输入框输入文字
     :param path: path
     :param value:
     :return:
     '''
-    text_field=geteleByXpath(path)
+    text_field = geteleByXpath(path)
     text_field.clear()
     text_field.send_keys(value)
+
 
 def get_size():
     '''
     获取屏幕尺寸
     :return: 长宽
     '''
-    size=driver.get_window_size()
-    x=size['width']
-    y=size['height']
-    return x,y
+    size = driver.get_window_size()
+    x = size['width']
+    y = size['height']
+    return x, y
+
 
 def swipe_up(count):
     '''
@@ -107,14 +117,15 @@ def swipe_up(count):
     :param count:滑动次数
     :return:
     '''
-    x1=get_size()[0]*0.5
-    y1=get_size()[1]*0.85
-    y2=get_size()[1]*0.15
+    x1 = get_size()[0] * 0.5
+    y1 = get_size()[1] * 0.85
+    y2 = get_size()[1] * 0.15
     for i in range(count):
         time.sleep(1)
-        driver.swipe(x1,y1,x1,y2)
+        driver.swipe(x1, y1, x1, y2)
 
-def drag(driver,ele,time):
+
+def drag(driver, ele, time):
     '''
     下拉操作
     :param ele:
@@ -127,18 +138,19 @@ def drag(driver,ele,time):
     X = driver.get_window_size()['width']
     Y = driver.get_window_size()['height']
     # 屏幕坐标乘以系数即为用户要点击位置的具体坐标
-    TouchAction(driver).press(ele).wait(time).move_to(x = a * X,y = b2 * Y).release().perform();
+    TouchAction(driver).press(ele).wait(time).move_to(x=a * X, y=b2 * Y).release().perform();
+
 
 if __name__ == "__main__":
-    #处理系统权限弹框
+    # 处理系统权限弹框
     driver.implicitly_wait(5)
     always_allow(driver, 1)
     driver.implicitly_wait(1)
-    #点击【消息】tab
+    # 点击【消息】tab
     clickeleById("com.fooww.soft.android.Presentation:id/message_badge")
     driver.implicitly_wait(3)
     clickeleByXpath("//*[@text='微站客户']")
-    #点击【访客动态】
+    # 点击【访客动态】
     driver.implicitly_wait(3)
     clickeleById("com.fooww.soft.android.Presentation:id/customer_dynm")
     # 向下滑动
@@ -149,8 +161,8 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/sg_submit")
     # 下拉分享
     time.sleep(1)
-    drag(driver,geteleByXpath("//*[@text='租房']"),500)
-    #退出介绍页
+    drag(driver, geteleByXpath("//*[@text='租房']"), 500)
+    # 退出介绍页
     driver.keyevent(4)
     # 再次下拉分享
     time.sleep(3)
@@ -171,13 +183,3 @@ if __name__ == "__main__":
 
     time.sleep(10)
     driver.quit()
-
-
-
-
-
-
-
-
-
-
