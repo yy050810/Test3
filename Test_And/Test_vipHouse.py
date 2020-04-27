@@ -144,6 +144,7 @@ if __name__ == "__main__":
     #查看电话
     driver.implicitly_wait(1)
     clickeleById("com.fooww.soft.android.Presentation:id/ivCallPhone_text")
+    swipe_up(1)
     #查看图片
     clickeleById("com.fooww.soft.android.Presentation:id/tvImage")
     time.sleep(3)

@@ -141,18 +141,45 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     #点击【发现】tab
     clickeleById("发现")
+    #点击【个人房源】
     clickeleById("个人房源")
+    #点击【个人二手房】
     clickeleById("个人二手房")
     #点击第一个不为【已导入】的房源
-    eles = driver.find_elements_by_xpath("//*[@type='XCUIElementTypeCell' and not(contains(@id,'已导入'))]")
+    eles = driver.find_elements_by_xpath("//*[@type='XCUIElementTypeTable']/XCUIElementTypeCell[not(.//*[@label='已导入'])]")
     eles[0].click()
+    #查看电话
+    driver.implicitly_wait(1)
+    clickeleById("call on")
+    #查看图片
+    driver.execute_script('mobile: scroll', {'direction': 'down'})
+    clickeleById("照片:")
+    time.sleep(2)
+    #返回
+    clickeleById("icon back left")
+    #导入
+    clickeleById("导入")
+    #点击【保存】
+    clickeleById("保存")
+    time.sleep(10)
+    clickeleById("icon back left")
+    #个人房源搜索
+    driver.implicitly_wait(3)
+    clickeleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入小区关键字'")
+    time.sleep(1)
+    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入小区关键字'","后藏庄园")
+    clickeleById("搜索")
+    time.sleep(2)
+    #返回
+    clickeleById("icon back left")
+    clickeleById("icon back left")
+    # 点击【房源】
+    clickeleById("房源")
+    # 点击房源列表第一套房源（刚刚导入）
+    houses = driver.find_elements_by_xpath("//*[@type='XCUIElementTypeCell']")
+    houses[0].click()
+    #下滑
+    driver.execute_script('mobile: scroll', {'direction': 'down'})
+    time.sleep(10)
     driver.quit()
-
-
-
-
-
-
-
-
 
