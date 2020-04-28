@@ -151,37 +151,39 @@ if __name__ == "__main__":
     sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_hall_count", "1")
     # 选择区县
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_district_edit")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='日喀则市']")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     # 添加意向小区
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_add_intention_community")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "矿业第一安居")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/tvCommunity")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     # 保存
     clickeleByXpath("//*[@text='保存']")
     # 查看客源详情
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='测试顾客And']")
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     # 查看客源电话
     clickeleById("com.fooww.soft.android.Presentation:id/iv_call_phone")
     # 返回
     driver.keyevent(4)
     # 删除客源
+    driver.implicitly_wait(10)
     TouchAction(driver).long_press(geteleByXpath("//*[@text='测试顾客And']")).perform()
     clickeleByXpath("//*[@text='删除']")
     clickeleById("com.fooww.soft.android.Presentation:id/md_buttonDefaultPositive")
     # 查询
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_filter")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/etUserOwner")
     clickeleByXpath("//*[@text='王明Wangmin']")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/etBusinessState")
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='状态不限']")
     clickeleById("com.fooww.soft.android.Presentation:id/btnConfirmCondition")
     time.sleep(10)

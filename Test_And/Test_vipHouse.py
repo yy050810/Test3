@@ -164,15 +164,16 @@ if __name__ == "__main__":
     # 返回
     driver.keyevent(4)
     # 导入
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='导入']")
     # 点击【保存】
     clickeleById("com.fooww.soft.android.Presentation:id/TitleBarGuideForward")
     # 个人房源搜索
     clickeleById("com.fooww.soft.android.Presentation:id/mEtSearch")
-    time.sleep(1)
+    driver.implicitly_wait(10)
     sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "达热瓦后藏庄园")
-    clickeleById("com.fooww.soft.android.Presentation:id/mTvMatching")
+    driver.implicitly_wait(10)
+    clickeleByXpath("//*[@text='搜索']")
     time.sleep(2)
     # 返回
     driver.keyevent(4)
