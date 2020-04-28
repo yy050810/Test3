@@ -2,19 +2,20 @@ import os
 from appium import webdriver
 import time
 
+desired_caps = dict()
+desired_caps['platformName'] = 'iOS'
+desired_caps['platformVersion'] = '12.4'
+desired_caps['deviceName'] = 'iPhone 7'
+desired_caps['app'] = 'com.fooww.softiphone'
+desired_caps['udid'] = '478c4f8a26209f259d4f7445a68173f8e65d1638'
+desired_caps['app'] = '/Users/cady/Downloads/Foowwphone.ipa'
+desired_caps['locationServicesEnabled'] = True
+desired_caps['locationServicesAuthorized'] = True
+desired_caps['fullReset'] = True
 
-desired_caps=dict()
-desired_caps['platformName']='iOS'
-desired_caps['platformVersion']='12.4'
-desired_caps['deviceName']='iPhone 7'
-desired_caps['app']='com.fooww.softiphone'
-desired_caps['udid']='478c4f8a26209f259d4f7445a68173f8e65d1638'
-desired_caps['app']='/Users/cady/Downloads/Foowwphone.ipa'
-desired_caps['locationServicesEnabled']= True
-desired_caps['locationServicesAuthorized']= True
-desired_caps['fullReset']= True
+driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
-driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
+
 def geteleByPredicate(con):
     '''
     通过ByPredicate方式获得元素
@@ -23,6 +24,7 @@ def geteleByPredicate(con):
     '''
     ele = driver.find_element_by_ios_predicate(con)
     return ele
+
 
 def geteleById(id):
     '''
@@ -33,23 +35,28 @@ def geteleById(id):
     ele = driver.find_element_by_accessibility_id(id)
     return ele
 
+
 def clickeleByPredicate(con):
-    ele=geteleByPredicate(con)
+    ele = geteleByPredicate(con)
     ele.click()
+
 
 def clickeleById(id):
-    ele=geteleById(id)
+    ele = geteleById(id)
     ele.click()
 
-def sendkeyseleByPredicate(con,value):
-    text_field=geteleByPredicate(con)
+
+def sendkeyseleByPredicate(con, value):
+    text_field = geteleByPredicate(con)
     text_field.clear()
     text_field.send_keys(value)
+
 
 def sendkeyseleById(id, value):
     text_field = geteleById(id)
     text_field.clear()
     text_field.send_keys(value)
+
 
 def location_handle_permission():
     '''
@@ -67,22 +74,18 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     clickeleById("guid clickSkip")
     driver.implicitly_wait(5)
-    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入您的梵讯账号/邮箱/手机号码'","13000000033")
-    sendkeyseleByPredicate("type == 'XCUIElementTypeSecureTextField' AND value == '请输入您的密码'","1234567:pUblic")
+    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入您的梵讯账号/邮箱/手机号码'", "13000000033")
+    sendkeyseleByPredicate("type == 'XCUIElementTypeSecureTextField' AND value == '请输入您的密码'", "1234567:pUblic")
     clickeleById("登录")
     time.sleep(3)
-    #处理可能会出现的地理位置权限弹窗
+    # 处理可能会出现的地理位置权限弹窗
     location_handle_permission()
-    #输入城市
+    # 输入城市
     driver.implicitly_wait(5)
-    sendkeyseleByPredicate("type == 'XCUIElementTypeSearchField' AND label == '请输入城市名称'","日喀则")
+    sendkeyseleByPredicate("type == 'XCUIElementTypeSearchField' AND label == '请输入城市名称'", "日喀则")
     clickeleById("日喀则")
-    #如果前面弹窗没有出现就在这里出现并处理
+    # 如果前面弹窗没有出现就在这里出现并处理
     time.sleep(10)
     location_handle_permission()
     time.sleep(10)
     driver.quit()
-
-
-
-

@@ -16,4 +16,3 @@ driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub',desired_caps)
 if __name__ == "__main__":
     time.sleep(20)
     driver.quit()
-
