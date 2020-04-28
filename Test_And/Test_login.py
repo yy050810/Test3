@@ -56,14 +56,14 @@ if __name__ == "__main__":
     # 处理3个权限弹窗
     always_allow(driver, 3)
     # 点击【跳过】
-    driver.implicitly_wait(20)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/btn_splash_skip")
     driver.implicitly_wait(10)
     # 输入用户名和密码
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail", "13000000033")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etPassword", "1234567:pUblic")
     clickeleById("com.fooww.soft.android.Presentation:id/btnLogin")
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     # 处理1个权限弹窗
     always_allow(driver, 1)
     time.sleep(10)

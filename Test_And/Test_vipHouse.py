@@ -174,13 +174,15 @@ if __name__ == "__main__":
     sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "达热瓦后藏庄园")
     driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='搜索']")
-    time.sleep(2)
+    time.sleep(3)
     # 返回
     driver.keyevent(4)
     driver.keyevent(4)
     # 点击【房源】
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/house_badge")
     # 点击房源列表第一套房源（刚刚导入）
+    driver.implicitly_wait(10)
     houses = driver.find_elements_by_xpath(
         "//*[@resource-id='com.fooww.soft.android.Presentation:id/rv_house_list']/android.widget.LinearLayout")
     houses[0].click()

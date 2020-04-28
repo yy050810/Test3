@@ -127,26 +127,30 @@ def swipe_up(count):
 
 if __name__ == "__main__":
     # 处理系统权限弹框
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     always_allow(driver, 1)
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(10)
     # 点击【客源】tab
     clickeleById("com.fooww.soft.android.Presentation:id/demand_badge")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     # 点击【添加客源】
     clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_add")
     clickeleByXpath("//*[@text='添加新客源']")
     # 填写客源姓名
+    driver.implicitly_wait(10)
     sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_customer_name", "测试顾客And")
     # 填写电话
+    driver.implicitly_wait(10)
     sendkeyseleById("com.fooww.soft.android.Presentation:id/demand_view_phone_0", "13501300333")
     # 填写总价
+    driver.implicitly_wait(10)
     sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_start", "0")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/edit_end", "500")
     time.sleep(1)
     # 向下滑动
     swipe_up(1)
     # 填写户型
+    driver.implicitly_wait(10)
     sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_room_count", "2")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/et_demand_hall_count", "1")
     # 选择区县

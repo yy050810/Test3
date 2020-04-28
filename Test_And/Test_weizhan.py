@@ -145,38 +145,44 @@ if __name__ == "__main__":
     # 处理系统权限弹框
     driver.implicitly_wait(5)
     always_allow(driver, 1)
-    driver.implicitly_wait(1)
+    driver.implicitly_wait(10)
     # 点击【消息】tab
     clickeleById("com.fooww.soft.android.Presentation:id/message_badge")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='微站客户']")
     # 点击【访客动态】
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/customer_dynm")
     # 向下滑动
     swipe_up(2)
     # 点击【分享获客】
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/customer_share")
     # 点击【立即分享】
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/sg_submit")
     # 下拉分享
-    time.sleep(1)
+    time.sleep(3)
     drag(driver, geteleByXpath("//*[@text='租房']"), 500)
     # 退出介绍页
+    time.sleep(3)
     driver.keyevent(4)
     # 再次下拉分享
     time.sleep(3)
     drag(driver, geteleByXpath("//*[@text='租房']"), 500)
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/mBtCollect")
     # 点击【分享】
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='分享']")
     # 选择【微信】
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='微信好友']")
     # 选择微信要分享的人
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='Cady']")
     # 点击【发送】
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='分享']")
     # 点击【返回手机梵讯】
     clickeleByXpath("//*[@text='返回手机梵讯']")
