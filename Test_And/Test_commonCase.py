@@ -495,11 +495,6 @@ if __name__ == "__main__":
     #点击【审批管理】
     driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='审批管理']")
-    #点击【待我审批】
-    driver.implicitly_wait(10)
-    clickeleById("com.fooww.soft.android.Presentation:id/mRlApprovalWaiting")
-    time.sleep(10)
-    driver.keyevent(4)
     #点击【全部审批】
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/mRlApprovalAll")

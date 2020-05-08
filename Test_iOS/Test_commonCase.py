@@ -462,6 +462,41 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     clickeleById("icon attendance back")
 
-    ##个人常见操作
+    ## 个人常见操作
+    driver.implicitly_wait(10)
+    # 点击【我的】
+    clickeleByXpath("//XCUIElementTypeButton[@name='我的']")
+    # 向下滑动
+    driver.execute_script('mobile: scroll', {'direction': 'down'})
+    #点击【海报中心】
+    clickeleById("海报中心")
+    #切换tab
+    driver.implicitly_wait(10)
+    clickeleById("喜报")
+    driver.implicitly_wait(10)
+    clickeleById("拓客")
+    driver.implicitly_wait(10)
+    clickeleById("节日")
+    driver.implicitly_wait(10)
+    clickeleById("招聘")
+    # 返回
+    driver.implicitly_wait(10)
+    clickeleById("icon back left")
+    # 点击【合同】
+    driver.implicitly_wait(10)
+    clickeleById("合同")
+    driver.implicitly_wait(10)
+    clickeleById("icon back left")
+    driver.implicitly_wait(10)
+    clickeleById("审批管理")
+    clickeleById("全部审批")
+    driver.implicitly_wait(10)
+    clickeleById("icon back left")
+    clickeleById("icon back left")
+    #回到首页
+    time.sleep(10)
+    driver.quit()
+
+
 
 
