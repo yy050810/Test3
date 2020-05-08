@@ -110,10 +110,10 @@ if __name__ == "__main__":
     # 点击【录入房源】
     target_click(117, 515)
     clickeleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请选择'")
-    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入小区关键字或拼音'", "一期")
-    driver.implicitly_wait(2)
+    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入小区关键字或拼音'", "闸北")
+    driver.implicitly_wait(10)
     # 搜索小区
-    clickeleById("颐和轩一期")
+    clickeleById("闸北公房")
     # 填写总价
     sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请填写'", "500")
     # 填写面积
@@ -138,11 +138,11 @@ if __name__ == "__main__":
     clickeleById("完成")
     driver.implicitly_wait(10)
     clickeleById("icon back left")
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     clickeleById("保存")
     driver.implicitly_wait(10)
     # 查看房源详情
-    clickeleByPredicate("type == 'XCUIElementTypeStaticText' AND value CONTAINS '颐和轩一期'")
+    clickeleByPredicate("type == 'XCUIElementTypeStaticText' AND value == '闸北公房'")
     # 查看业主信息
     clickeleById("icon_tabbar_customerInfo")
     # 返回房源详情
@@ -150,13 +150,13 @@ if __name__ == "__main__":
     # 返回房源列表
     clickeleByPredicate("type == 'XCUIElementTypeButton' AND name == 'icon back left'")
     # 删除房源
-    toLeftSwipeByPredicate("type == 'XCUIElementTypeStaticText' AND value CONTAINS '颐和轩一期'")
+    toLeftSwipeByPredicate("type == 'XCUIElementTypeStaticText' AND value == '闸北公房'")
     clickeleByPredicate("type == 'XCUIElementTypeButton' AND name == '删除'")
     clickeleById("确定")
     # 搜索房源
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("经纪人/电话/小区/编号/门牌")
-    driver.implicitly_wait(1)
-    sendkeyseleById("经纪人/电话/小区/编号/门牌", "测试")
+    driver.implicitly_wait(10)
+    sendkeyseleById("经纪人/电话/小区/编号/门牌", "富贵小区")
     time.sleep(15)
     driver.quit()

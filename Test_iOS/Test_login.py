@@ -73,17 +73,17 @@ if __name__ == "__main__":
     driver.switch_to.alert.accept()
     driver.implicitly_wait(10)
     clickeleById("guid clickSkip")
-    driver.implicitly_wait(5)
-    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入您的梵讯账号/邮箱/手机号码'", "13000000033")
+    driver.implicitly_wait(10)
+    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入您的梵讯账号/邮箱/手机号码'", "15900000001")
     sendkeyseleByPredicate("type == 'XCUIElementTypeSecureTextField' AND value == '请输入您的密码'", "1234567:pUblic")
     clickeleById("登录")
     time.sleep(3)
     # 处理可能会出现的地理位置权限弹窗
     location_handle_permission()
     # 输入城市
-    driver.implicitly_wait(5)
-    sendkeyseleByPredicate("type == 'XCUIElementTypeSearchField' AND label == '请输入城市名称'", "日喀则")
-    clickeleById("日喀则")
+    driver.implicitly_wait(10)
+    sendkeyseleByPredicate("type == 'XCUIElementTypeSearchField' AND label == '请输入城市名称'", "上海")
+    clickeleById("上海")
     # 如果前面弹窗没有出现就在这里出现并处理
     time.sleep(10)
     location_handle_permission()

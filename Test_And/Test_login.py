@@ -60,7 +60,7 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/btn_splash_skip")
     driver.implicitly_wait(10)
     # 输入用户名和密码
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail", "13000000033")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail", "15900000001")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etPassword", "1234567:pUblic")
     clickeleById("com.fooww.soft.android.Presentation:id/btnLogin")
     driver.implicitly_wait(10)

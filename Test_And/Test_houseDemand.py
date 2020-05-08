@@ -156,11 +156,11 @@ if __name__ == "__main__":
     # 选择区县
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_district_edit")
     driver.implicitly_wait(10)
-    clickeleByXpath("//*[@text='日喀则市']")
+    clickeleByXpath("//*[@text='闸北']")
     driver.implicitly_wait(10)
     # 添加意向小区
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_add_intention_community")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "矿业第一安居")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "测试闸北")
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/tvCommunity")
     driver.implicitly_wait(10)
@@ -184,7 +184,7 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_filter")
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/etUserOwner")
-    clickeleByXpath("//*[@text='王明Wangmin']")
+    clickeleByXpath("//*[@text='公司管理员']")
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/etBusinessState")
     driver.implicitly_wait(10)

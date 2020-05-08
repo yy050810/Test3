@@ -137,10 +137,10 @@ if __name__ == "__main__":
         "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.View[1]")
     # 点击【小区】
     clickeleById("com.fooww.soft.android.Presentation:id/tv_house_add_row_select_value")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "一期")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "闸北")
     driver.implicitly_wait(10)
     # 搜索小区
-    clickeleByXpath("//*[@text='颐和轩一期']")
+    clickeleByXpath("//*[@text='闸北公房']")
     driver.implicitly_wait(10)
     # 填写总价
     sendkeyseleByXpath("//*[@text='请填写']", "500")
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     clickeleByXpath("//*[@text='保存']")
     driver.implicitly_wait(10)
     # 查看房源详情
-    clickeleByXpath("//*[@text='颐和轩一期']")
+    clickeleByXpath("//*[@text='闸北公房']")
     # 查看业主信息
     clickeleById("com.fooww.soft.android.Presentation:id/ivOwner")
     time.sleep(3)
@@ -185,14 +185,14 @@ if __name__ == "__main__":
     # 返回房源列表
     driver.keyevent(4)
     # 删除房源
-    TouchAction(driver).long_press(geteleByXpath("//*[@text='颐和轩一期']")).perform()
+    TouchAction(driver).long_press(geteleByXpath("//*[@text='闸北公房']")).perform()
     clickeleByXpath("//*[@text='删除']")
     clickeleById("com.fooww.soft.android.Presentation:id/md_buttonDefaultPositive")
     # 搜索房源
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/et_search_bar")
     driver.implicitly_wait(10)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword", "测试吧")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword", "富贵小区")
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/mTvKeyword")
     time.sleep(10)

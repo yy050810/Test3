@@ -171,7 +171,7 @@ if __name__ == "__main__":
     # 个人房源搜索
     clickeleById("com.fooww.soft.android.Presentation:id/mEtSearch")
     driver.implicitly_wait(10)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "达热瓦后藏庄园")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "新苑")
     driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='搜索']")
     time.sleep(3)

@@ -176,14 +176,16 @@ if __name__ == "__main__":
     # 导入
     clickeleById("导入")
     # 点击【保存】
+    time.sleep(3)
     clickeleById("保存")
-    time.sleep(10)
+    driver.implicitly_wait(20)
+    clickeleByPredicate("type =='XCUIElementTypeOther' AND label == '个人二手房详情'")
     clickeleById("icon back left")
     # 个人房源搜索
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入小区关键字'")
     time.sleep(1)
-    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入小区关键字'", "后藏庄园")
+    sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入小区关键字'", "新苑")
     clickeleById("搜索")
     time.sleep(2)
     # 返回

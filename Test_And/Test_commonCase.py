@@ -173,12 +173,61 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     time.sleep(3)
     # 输入用户名和密码
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail", "13000000033")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail", "15900000001")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etPassword", "1234567:pUblic")
     clickeleById("com.fooww.soft.android.Presentation:id/btnLogin")
     driver.implicitly_wait(5)
     # 处理1个权限弹窗
     always_allow(driver, 1)
+
+    ##个人房源常见操作
+    # 点击【发现】tab
+    driver.implicitly_wait(10)
+    clickeleById("com.fooww.soft.android.Presentation:id/find_badge")
+    # 点击【个人房源】
+    clickeleByXpath("//*[@text='个人房源']")
+    # 点击【个人二手房】
+    clickeleById("com.fooww.soft.android.Presentation:id/rl_self_second")
+    # 点击第一个不为【已导入】的房源
+    eles = driver.find_elements_by_xpath(
+        "//*[@resource-id='com.fooww.soft.android.Presentation:id/rv_house_list']/android.widget.RelativeLayout[not(.//*[@text='已导入'])]")
+    eles[0].click()
+    # 查看电话
+    driver.implicitly_wait(1)
+    clickeleById("com.fooww.soft.android.Presentation:id/ivCallPhone_text")
+    swipe_up(1)
+    # 查看图片
+    clickeleById("com.fooww.soft.android.Presentation:id/tvImage")
+    time.sleep(10)
+    # 返回
+    driver.keyevent(4)
+    # 导入
+    driver.implicitly_wait(10)
+    clickeleByXpath("//*[@text='导入']")
+    # 点击【保存】
+    clickeleById("com.fooww.soft.android.Presentation:id/TitleBarGuideForward")
+    # 个人房源搜索
+    clickeleById("com.fooww.soft.android.Presentation:id/mEtSearch")
+    driver.implicitly_wait(10)
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "新苑")
+    driver.implicitly_wait(10)
+    clickeleByXpath("//*[@text='搜索']")
+    time.sleep(10)
+    # 返回
+    driver.keyevent(4)
+    driver.keyevent(4)
+    # 点击【房源】
+    clickeleById("com.fooww.soft.android.Presentation:id/house_badge")
+    # 点击房源列表第一套房源（刚刚导入）
+    driver.implicitly_wait(10)
+    houses = driver.find_elements_by_xpath(
+        "//*[@resource-id='com.fooww.soft.android.Presentation:id/rv_house_list']/android.widget.LinearLayout")
+    houses[0].click()
+    # 下滑
+    time.sleep(10)
+    swipe_up(1)
+    time.sleep(10)
+    driver.keyevent(4)
 
     ##房源常见操作
     # 浏览第1-6套房源
@@ -191,11 +240,11 @@ if __name__ == "__main__":
         "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.View[1]")
     # 点击【小区】
     clickeleById("com.fooww.soft.android.Presentation:id/tv_house_add_row_select_value")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "一期")
-    driver.implicitly_wait(2)
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "闸北")
+    driver.implicitly_wait(10)
     # 搜索小区
-    clickeleByXpath("//*[@text='颐和轩一期']")
-    driver.implicitly_wait(2)
+    clickeleByXpath("//*[@text='闸北公房']")
+    driver.implicitly_wait(10)
     # 填写总价
     sendkeyseleByXpath("//*[@text='请填写']", "500")
     sendkeyseleByXpath("//*[@text='请填写']", "80")
@@ -235,7 +284,7 @@ if __name__ == "__main__":
     clickeleByXpath("//*[@text='保存']")
     # 查看房源详情
     driver.implicitly_wait(10)
-    clickeleByXpath("//*[@text='颐和轩一期']")
+    clickeleByXpath("//*[@text='闸北公房']")
     # 查看业主信息
     clickeleById("com.fooww.soft.android.Presentation:id/ivOwner")
     driver.implicitly_wait(5)
@@ -246,14 +295,14 @@ if __name__ == "__main__":
     driver.keyevent(4)
     # 删除房源
     driver.implicitly_wait(10)
-    TouchAction(driver).long_press(geteleByXpath("//*[@text='颐和轩一期']")).perform()
+    TouchAction(driver).long_press(geteleByXpath("//*[@text='闸北公房']")).perform()
     clickeleByXpath("//*[@text='删除']")
     clickeleById("com.fooww.soft.android.Presentation:id/md_buttonDefaultPositive")
     # 搜索房源
     driver.implicitly_wait(3)
     clickeleById("com.fooww.soft.android.Presentation:id/et_search_bar")
     driver.implicitly_wait(3)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword", "测试")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword", "富贵小区")
     driver.implicitly_wait(3)
     clickeleById("com.fooww.soft.android.Presentation:id/mTvKeyword")
     time.sleep(10)
@@ -286,11 +335,11 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_district_edit")
     driver.implicitly_wait(5)
-    clickeleByXpath("//*[@text='日喀则市']")
+    clickeleByXpath("//*[@text='闸北']")
     time.sleep(10)
     # 添加意向小区
     clickeleById("com.fooww.soft.android.Presentation:id/tv_demand_add_intention_community")
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "矿业第一安居")
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "测试闸北")
     driver.implicitly_wait(5)
     clickeleById("com.fooww.soft.android.Presentation:id/tvCommunity")
     # 保存
@@ -345,7 +394,7 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_filter")
     driver.implicitly_wait(5)
     clickeleById("com.fooww.soft.android.Presentation:id/etUserOwner")
-    clickeleByXpath("//*[@text='王明Wangmin']")
+    clickeleByXpath("//*[@text='公司管理员']")
     driver.implicitly_wait(5)
     clickeleById("com.fooww.soft.android.Presentation:id/etBusinessState")
     clickeleByXpath("//*[@text='状态不限']")
@@ -355,17 +404,17 @@ if __name__ == "__main__":
     # 点击【消息】tab
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/message_badge")
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     # 点击【系统消息】
     clickeleByXpath("//*[@text='系统消息']")
     time.sleep(10)
     driver.keyevent(4)
     time.sleep(10)
     # 点击【微站用户】
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleByXpath("//*[@text='微站客户']")
     # 点击【访客动态】
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/customer_dynm")
     # 向下滑动
     time.sleep(10)
@@ -403,55 +452,6 @@ if __name__ == "__main__":
     # 返回
     driver.keyevent(4)
     # 返回
-    driver.keyevent(4)
-
-    ##个人房源常见操作
-    # 点击【发现】tab
-    driver.implicitly_wait(10)
-    clickeleById("com.fooww.soft.android.Presentation:id/find_badge")
-    # 点击【个人房源】
-    clickeleByXpath("//*[@text='个人房源']")
-    # 点击【个人二手房】
-    clickeleById("com.fooww.soft.android.Presentation:id/rl_self_second")
-    # 点击第一个不为【已导入】的房源
-    eles = driver.find_elements_by_xpath(
-        "//*[@resource-id='com.fooww.soft.android.Presentation:id/rv_house_list']/android.widget.RelativeLayout[not(.//*[@text='已导入'])]")
-    eles[0].click()
-    # 查看电话
-    driver.implicitly_wait(1)
-    clickeleById("com.fooww.soft.android.Presentation:id/ivCallPhone_text")
-    swipe_up(1)
-    # 查看图片
-    clickeleById("com.fooww.soft.android.Presentation:id/tvImage")
-    time.sleep(10)
-    # 返回
-    driver.keyevent(4)
-    # 导入
-    driver.implicitly_wait(10)
-    clickeleByXpath("//*[@text='导入']")
-    # 点击【保存】
-    clickeleById("com.fooww.soft.android.Presentation:id/TitleBarGuideForward")
-    # 个人房源搜索
-    clickeleById("com.fooww.soft.android.Presentation:id/mEtSearch")
-    driver.implicitly_wait(10)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "达热瓦后藏庄园")
-    driver.implicitly_wait(10)
-    clickeleByXpath("//*[@text='搜索']")
-    time.sleep(10)
-    # 返回
-    driver.keyevent(4)
-    driver.keyevent(4)
-    # 点击【房源】
-    clickeleById("com.fooww.soft.android.Presentation:id/house_badge")
-    # 点击房源列表第一套房源（刚刚导入）
-    driver.implicitly_wait(10)
-    houses = driver.find_elements_by_xpath(
-        "//*[@resource-id='com.fooww.soft.android.Presentation:id/rv_house_list']/android.widget.LinearLayout")
-    houses[0].click()
-    # 下滑
-    time.sleep(10)
-    swipe_up(1)
-    time.sleep(10)
     driver.keyevent(4)
 
     ##个人tab常见操作
