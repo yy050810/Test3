@@ -305,9 +305,6 @@ if __name__ == "__main__":
     sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword", "富贵小区")
     driver.implicitly_wait(3)
     clickeleById("com.fooww.soft.android.Presentation:id/mTvKeyword")
-    time.sleep(10)
-    #清除搜索记录
-    clickeleByXpath("//*[@text='清空全部搜索/筛选条件']")
 
     ##客源常见操作
     # 点击【客源】tab
@@ -428,11 +425,11 @@ if __name__ == "__main__":
     # 下拉分享
     time.sleep(10)
     drag(driver, geteleByXpath("//*[@text='租房']"), 500)
-    # 退出介绍页
-    driver.keyevent(4)
-    # 再次下拉分享
-    time.sleep(10)
-    drag(driver, geteleByXpath("//*[@text='租房']"), 500)
+    # # 退出介绍页
+    # driver.keyevent(4)
+    # # 再次下拉分享
+    # time.sleep(10)
+    # drag(driver, geteleByXpath("//*[@text='租房']"), 500)
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/mBtCollect")
     # 点击【分享】
