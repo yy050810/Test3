@@ -319,12 +319,9 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     clickeleById("经纪人/电话/小区/编号/门牌")
     driver.implicitly_wait(10)
-    sendkeyseleById("经纪人/电话/小区/编号/门牌", "富贵小区")
+    sendkeyseleById("经纪人/电话/小区/编号/门牌", "广场")
     driver.implicitly_wait(10)
     clickeleById("搜索")
-    driver.implicitly_wait(20)
-    #清除搜索记录
-    clickeleByPredicate("label == '清空全部搜索/筛选条件'")
 
     ##客源常见操作
     # 点击【客源】tab
@@ -436,15 +433,13 @@ if __name__ == "__main__":
     time.sleep(1)
     # 下拉分享
     drag(geteleById("租房"), 0.4)
-    # 退出介绍页
-    clickeleById("icon back left")
-    drag(geteleById("租房"), 0.4)
-    driver.implicitly_wait(3)
+    # 生成房源单
+    driver.implicitly_wait(10)
     clickeleById("生成房源单")
     # 点击【分享】
     clickeleByXpath("//XCUIElementTypeButton[@name=' 分享']")
     # 选择【微信】
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("wx icon")
     # 选择微信要分享的人
     driver.implicitly_wait(15)
