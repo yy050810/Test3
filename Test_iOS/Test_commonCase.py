@@ -10,10 +10,10 @@ desired_caps['platformVersion'] = '12.4'
 desired_caps['deviceName'] = 'iPhone 7'
 desired_caps['app'] = 'com.fooww.softiphone'
 desired_caps['udid'] = '478c4f8a26209f259d4f7445a68173f8e65d1638'
-desired_caps['app'] = '/Users/cady/Downloads/Foowwphone.ipa'
+# desired_caps['app'] = '/Users/cady/Downloads/Foowwphone.ipa'
 desired_caps['locationServicesEnabled'] = True
 desired_caps['locationServicesAuthorized'] = True
-desired_caps['fullReset'] = True
+desired_caps['noReset'] = True  # 不重装应用
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
@@ -202,14 +202,8 @@ if __name__ == "__main__":
     sendkeyseleByPredicate("type == 'XCUIElementTypeTextField' AND value == '请输入您的梵讯账号/邮箱/手机号码'", "15900000001")
     sendkeyseleByPredicate("type == 'XCUIElementTypeSecureTextField' AND value == '请输入您的密码'", "1234567:pUblic")
     clickeleById("登录")
-    time.sleep(3)
-    # 处理可能会出现的地理位置权限弹窗
-    location_handle_permission()
-    # 输入城市
-    driver.implicitly_wait(10)
-    sendkeyseleByPredicate("type == 'XCUIElementTypeSearchField' AND label == '请输入城市名称'", "上海")
-    clickeleById("上海")
-    # 如果前面弹窗没有出现就在这里出现并处理
+
+    # 位置权限弹窗在这里出现并处理
     driver.implicitly_wait(10)
     location_handle_permission()
     driver.implicitly_wait(10)
