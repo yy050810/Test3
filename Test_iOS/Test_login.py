@@ -87,5 +87,7 @@ if __name__ == "__main__":
     # 如果前面弹窗没有出现就在这里出现并处理
     time.sleep(10)
     location_handle_permission()
-    time.sleep(10)
+    driver.implicitly_wait(10)
+    clickeleById("icon PopupWindow Quit")
+    time.sleep(5)
     driver.quit()
