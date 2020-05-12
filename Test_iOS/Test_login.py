@@ -79,7 +79,5 @@ if __name__ == "__main__":
     # 位置权限弹窗在这里出现并处理
     driver.implicitly_wait(15)
     location_handle_permission()
-    driver.implicitly_wait(10)
-    clickeleById("icon PopupWindow Quit")
     time.sleep(5)
     driver.quit()
