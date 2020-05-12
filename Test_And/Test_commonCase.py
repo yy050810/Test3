@@ -391,7 +391,7 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_filter")
     driver.implicitly_wait(5)
     clickeleById("com.fooww.soft.android.Presentation:id/etUserOwner")
-    clickeleByXpath("//*[@text='公司管理员']")
+    clickeleByXpath("//*[@text='尼克斯1115']")
     driver.implicitly_wait(5)
     clickeleById("com.fooww.soft.android.Presentation:id/etBusinessState")
     clickeleByXpath("//*[@text='状态不限']")

@@ -39,7 +39,7 @@ def geteleById(id):
 
 def geteleByName(name):
     '''
-    通过id方法获得元素
+    通过name方法获得元素
     :param id: id
     :return: 元素
     '''
@@ -206,8 +206,8 @@ if __name__ == "__main__":
     # 位置权限弹窗在这里出现并处理
     driver.implicitly_wait(10)
     location_handle_permission()
-    driver.implicitly_wait(10)
-    clickeleById("icon PopupWindow Quit")
+    # driver.implicitly_wait(10)
+    # clickeleById("icon PopupWindow Quit")
 
     ##导入个人房源常见操作
     driver.implicitly_wait(10)
@@ -413,7 +413,7 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     clickeleById("icon customer search")
     clickeleByXpath("(//XCUIElementTypeStaticText[@name='不限'])[1]")
-    clickeleById("公司管理员")
+    clickeleById("尼克斯1115")
     clickeleById("全部有效")
     clickeleById("全部不限")
     driver.implicitly_wait(10)

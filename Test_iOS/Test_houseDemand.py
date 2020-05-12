@@ -163,7 +163,7 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     clickeleById("icon customer search")
     clickeleByXpath("(//XCUIElementTypeStaticText[@name='不限'])[1]")
-    clickeleById("公司管理员")
+    clickeleById("尼克斯1115")
     clickeleById("全部有效")
     clickeleById("全部不限")
     driver.implicitly_wait(10)
