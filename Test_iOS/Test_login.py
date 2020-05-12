@@ -77,7 +77,7 @@ if __name__ == "__main__":
     sendkeyseleByPredicate("type == 'XCUIElementTypeSecureTextField' AND value == '请输入您的密码'", "1234567:pUblic")
     clickeleById("登录")
     # 位置权限弹窗在这里出现并处理
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(15)
     location_handle_permission()
     driver.implicitly_wait(10)
     clickeleById("icon PopupWindow Quit")
