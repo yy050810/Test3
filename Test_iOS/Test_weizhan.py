@@ -181,13 +181,13 @@ if __name__ == "__main__":
     driver.implicitly_wait(3)
     clickeleById("wx icon")
     # 选择微信要分享的人
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleByPredicate("type == 'XCUIElementTypeStaticText' AND value == 'Cady' AND name == 'Cady'")
     # 点击【发送】
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("发送")
     # 点击【返回手机梵讯】
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(10)
     clickeleById("返回手机梵讯")
 
     time.sleep(10)
