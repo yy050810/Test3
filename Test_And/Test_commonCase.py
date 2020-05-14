@@ -13,9 +13,9 @@ desired_caps = dict()
 desired_caps['platformName'] = 'Android'
 desired_caps['platformVersion'] = '8.1.0'
 desired_caps['deviceName'] = '7XBRX19426001121'
-desired_caps['app'] = '/Users/cady/Downloads/手机梵讯.apk'
 desired_caps['appPackage'] = 'com.fooww.soft.android.Presentation'
 desired_caps['appActivity'] = '.SplashScreenActivity'
+desired_caps['noReset'] = True  # 不重装应用
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
@@ -27,7 +27,7 @@ def always_allow(driver, number=5):
     :param number: 点击"允许"次数
     :return:
     '''
-    for i in range(3):
+    for i in range(number):
         loc = ("xpath", "//*[@text='始终允许']")
         try:
             e = WebDriverWait(driver, 1, 0.5).until(EC.presence_of_element_located(loc))
@@ -165,8 +165,8 @@ def switchtabs(count):
 
 
 if __name__ == "__main__":
-    # 处理3个权限弹窗
-    always_allow(driver, 3)
+    # 处理4个权限弹窗
+    always_allow(driver, 4)
     # 点击【跳过】
     driver.implicitly_wait(20)
     clickeleById("com.fooww.soft.android.Presentation:id/btn_splash_skip")
@@ -299,12 +299,14 @@ if __name__ == "__main__":
     clickeleByXpath("//*[@text='删除']")
     clickeleById("com.fooww.soft.android.Presentation:id/md_buttonDefaultPositive")
     # 搜索房源
-    driver.implicitly_wait(3)
+    driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/et_search_bar")
-    driver.implicitly_wait(3)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword", "富贵小区")
-    driver.implicitly_wait(3)
-    clickeleById("com.fooww.soft.android.Presentation:id/mTvKeyword")
+    driver.implicitly_wait(10)
+    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtKeyword", "广场")
+    driver.implicitly_wait(10)
+    clickeleByXpath("//*[@text='搜索")
+    driver.implicitly_wait(10)
+    clickeleByXpath("//*[@text='清空全部搜索/筛选条件']")
 
     ##客源常见操作
     # 点击【客源】tab
@@ -425,11 +427,11 @@ if __name__ == "__main__":
     # 下拉分享
     time.sleep(10)
     drag(driver, geteleByXpath("//*[@text='租房']"), 500)
-    # # 退出介绍页
-    # driver.keyevent(4)
-    # # 再次下拉分享
-    # time.sleep(10)
-    # drag(driver, geteleByXpath("//*[@text='租房']"), 500)
+    # 退出介绍页
+    driver.keyevent(4)
+    # 再次下拉分享
+    time.sleep(10)
+    drag(driver, geteleByXpath("//*[@text='租房']"), 500)
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/mBtCollect")
     # 点击【分享】

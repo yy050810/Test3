@@ -42,6 +42,7 @@ def geteleByXpath(path):
     ele = driver.find_element_by_xpath(path)
     return ele
 
+
 def geteleByName(name):
     '''
     通过name方法获得元素
@@ -66,9 +67,11 @@ def clickeleByXpath(path):
     ele = geteleByXpath(path)
     ele.click()
 
+
 def clickeleByName(name):
     ele = geteleByName(name)
     ele.click()
+
 
 def sendkeyseleByPredicate(con, value):
     text_field = geteleByPredicate(con)
@@ -172,7 +175,7 @@ if __name__ == "__main__":
     sendkeyseleById("经纪人/电话/小区/编号/门牌", "广场")
     driver.implicitly_wait(10)
     clickeleById("搜索")
-    #清除搜索记录
+    # 清除搜索记录
     driver.implicitly_wait(10)
     clickeleByName("清空全部搜索/筛选条件")
     time.sleep(3)

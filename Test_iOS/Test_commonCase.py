@@ -37,6 +37,7 @@ def geteleById(id):
     ele = driver.find_element_by_accessibility_id(id)
     return ele
 
+
 def geteleByName(name):
     '''
     通过name方法获得元素
@@ -45,6 +46,7 @@ def geteleByName(name):
     '''
     ele = driver.find_element_by_name(name)
     return ele
+
 
 def geteleByXpath(path):
     '''
@@ -65,9 +67,11 @@ def clickeleById(id):
     ele = geteleById(id)
     ele.click()
 
+
 def clickeleByName(name):
     ele = geteleByName(name)
     ele.click()
+
 
 def sendkeyseleByPredicate(con, value):
     text_field = geteleByPredicate(con)
@@ -154,6 +158,7 @@ def photo_handle_permission(time):
     else:
         pass
 
+
 def vip_duplicate(time):
     '''
     权限处理
@@ -189,8 +194,6 @@ def drag(ele, time):
     driver.execute_script("mobile:dragFromToForDuration",
                           {"duration": time, "element": ele, "fromX": a * X, "fromY": b1 * Y, "toX": a * X,
                            "toY": b2 * Y})
-
-
 
 
 if __name__ == "__main__":
@@ -329,7 +332,7 @@ if __name__ == "__main__":
     sendkeyseleById("经纪人/电话/小区/编号/门牌", "广场")
     driver.implicitly_wait(10)
     clickeleById("搜索")
-    #清除搜索记录
+    # 清除搜索记录
     driver.implicitly_wait(10)
     clickeleByName("清空全部搜索/筛选条件")
 
@@ -478,9 +481,9 @@ if __name__ == "__main__":
     clickeleByXpath("//XCUIElementTypeButton[@name='我的']")
     # 向下滑动
     driver.execute_script('mobile: scroll', {'direction': 'down'})
-    #点击【海报中心】
+    # 点击【海报中心】
     clickeleById("海报中心")
-    #切换tab
+    # 切换tab
     driver.implicitly_wait(10)
     clickeleById("喜报")
     driver.implicitly_wait(10)
@@ -503,10 +506,6 @@ if __name__ == "__main__":
     driver.implicitly_wait(10)
     clickeleById("icon back left")
     clickeleById("icon back left")
-    #回到首页
+    # 回到首页
     time.sleep(10)
     driver.quit()
-
-
-
-

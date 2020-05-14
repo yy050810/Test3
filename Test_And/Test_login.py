@@ -12,10 +12,10 @@ desired_caps = dict()
 desired_caps['platformName'] = 'Android'
 desired_caps['platformVersion'] = '8.1.0'
 desired_caps['deviceName'] = '7XBRX19426001121'
-desired_caps['app'] = '/Users/cady/Downloads/手机梵讯.apk'
+# desired_caps['app'] = '/Users/cady/Downloads/FoowwSoftAndroid.apk'
 desired_caps['appPackage'] = 'com.fooww.soft.android.Presentation'
 desired_caps['appActivity'] = '.SplashScreenActivity'
-# desired_caps['fullReset']= True
+desired_caps['noReset'] = True  # 不重装应用
 
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
@@ -27,7 +27,7 @@ def always_allow(driver, number=5):
     :param number: 点击"允许"次数
     :return:
     '''
-    for i in range(3):
+    for i in range(number):
         loc = ("xpath", "//*[@text='始终允许']")
         try:
             e = WebDriverWait(driver, 1, 0.5).until(EC.presence_of_element_located(loc))
@@ -54,7 +54,7 @@ def sendkeyseleById(id, value):
 
 if __name__ == "__main__":
     # 处理3个权限弹窗
-    always_allow(driver, 3)
+    always_allow(driver, 4)
     # 点击【跳过】
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/btn_splash_skip")
