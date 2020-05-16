@@ -24,7 +24,7 @@ def always_allow(driver, number=5):
     '''
     允许权限弹窗处理
     :param driver:
-    :param number: 点击"允许"次数
+    :param number: 点击"允许"次数（默认5次）
     :return:
     '''
     for i in range(3):
