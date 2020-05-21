@@ -45,6 +45,17 @@ def geteleById(id):
     ele = driver.find_element_by_id(id)
     return ele
 
+def btn_close(id):
+    '''
+    处理升级弹框
+    :param id:【跳过】按钮id
+    :return:
+    '''
+    try:
+        ele = geteleById(id)
+        ele.click()
+    except:
+        pass
 
 def geteleByXpath(path):
     '''
@@ -126,6 +137,9 @@ def swipe_up(count):
 
 
 if __name__ == "__main__":
+    #处理广告点击【跳过】
+    driver.implicitly_wait(10)
+    btn_close("com.fooww.soft.android.Presentation:id/btn_close")
     # 处理系统权限弹框
     driver.implicitly_wait(10)
     always_allow(driver, 1)
@@ -184,7 +198,7 @@ if __name__ == "__main__":
     clickeleById("com.fooww.soft.android.Presentation:id/iv_title_bar_filter")
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/etUserOwner")
-    clickeleByXpath("//*[@text='尼克斯1115']")
+    clickeleByXpath("//*[@text='0000001']")
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/etBusinessState")
     driver.implicitly_wait(10)

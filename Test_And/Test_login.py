@@ -35,6 +35,17 @@ def always_allow(driver, number=5):
         except:
             pass
 
+def ib_close(id):
+    '''
+    处理升级弹框
+    :param id:【x】按钮id
+    :return:
+    '''
+    try:
+        ele = geteleById(id)
+        ele.click()
+    except:
+        pass
 
 def geteleById(id):
     ele = driver.find_element_by_id(id)
@@ -58,7 +69,9 @@ if __name__ == "__main__":
     # 点击【跳过】
     driver.implicitly_wait(10)
     clickeleById("com.fooww.soft.android.Presentation:id/btn_splash_skip")
+    # 处理可能出现的升级弹框
     driver.implicitly_wait(10)
+    ib_close("com.fooww.soft.android.Presentation:id/ib_close")
     # 输入用户名和密码
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etEmail", "15900000001")
     sendkeyseleById("com.fooww.soft.android.Presentation:id/etPassword", "1234567:pUblic")

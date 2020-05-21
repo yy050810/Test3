@@ -155,6 +155,18 @@ def browsehouses(count):
         time.sleep(2)
         driver.keyevent(4)
 
+def btn_close(id):
+    '''
+    处理升级弹框
+    :param id:【跳过】按钮id
+    :return:
+    '''
+    try:
+        ele = geteleById(id)
+        ele.click()
+    except:
+        pass
+
 def switchtabs(count):
     for i in range(1,count):
         driver.implicitly_wait(10)
@@ -165,6 +177,9 @@ def switchtabs(count):
 
 
 if __name__ == "__main__":
+    #处理广告点击【跳过】
+    driver.implicitly_wait(10)
+    btn_close("com.fooww.soft.android.Presentation:id/btn_close")
     # 处理4个权限弹窗
     always_allow(driver, 4)
     # 点击【跳过】

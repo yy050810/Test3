@@ -122,6 +122,18 @@ def swipe_up(count):
         time.sleep(1)
         driver.swipe(x1, y1, x1, y2)
 
+def btn_close(id):
+    '''
+    处理升级弹框
+    :param id:【跳过】按钮id
+    :return:
+    '''
+    try:
+        ele = geteleById(id)
+        ele.click()
+    except:
+        pass
+
 
 def drag(driver, ele, time):
     '''
@@ -140,6 +152,9 @@ def drag(driver, ele, time):
 
 
 if __name__ == "__main__":
+    #处理广告点击【跳过】
+    driver.implicitly_wait(10)
+    btn_close("com.fooww.soft.android.Presentation:id/btn_close")
     # 处理系统权限弹框
     driver.implicitly_wait(5)
     always_allow(driver, 1)
