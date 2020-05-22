@@ -184,10 +184,10 @@ if __name__ == "__main__":
     # 点击【保存】
     clickeleById("com.fooww.soft.android.Presentation:id/TitleBarGuideForward")
     # 个人房源搜索
-    clickeleById("com.fooww.soft.android.Presentation:id/mEtSearch")
+    driver.implicitly_wait(15)
+    clickeleByXpath("//*[@text='请输入小区关键字']")
     driver.implicitly_wait(10)
-    sendkeyseleById("com.fooww.soft.android.Presentation:id/mEtSearch", "新苑")
-    driver.implicitly_wait(10)
+    sendkeyseleByXpath("//*[@text='请输入小区/备注']", "新苑")
     clickeleByXpath("//*[@text='搜索']")
     time.sleep(3)
     # 返回
@@ -201,7 +201,8 @@ if __name__ == "__main__":
     houses = driver.find_elements_by_xpath(
         "//*[@resource-id='com.fooww.soft.android.Presentation:id/rv_house_list']/android.widget.LinearLayout")
     houses[0].click()
-    # 下滑
+    time.sleep(5)
+    # 向下滑动
     swipe_up(1)
-    time.sleep(10)
+    time.sleep(5)
     driver.quit()
